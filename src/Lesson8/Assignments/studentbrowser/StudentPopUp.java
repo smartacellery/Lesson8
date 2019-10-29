@@ -46,7 +46,7 @@ Student temp;
                 {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3"
+                "Mark 1", "Mark 2", "Mark 3"
             }
         ));
         jScrollPane1.setViewportView(tblmarks);
