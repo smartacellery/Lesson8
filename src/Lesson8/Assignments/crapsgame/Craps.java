@@ -17,7 +17,8 @@ public class Craps {
         dice1.setColor(Color.red, Color.white);
         dice2.setColor(Color.red, Color.white);
         rollnum = 0;
-        point = 0;
+        point = 0;//score first roll
+        total=0;//score following rolls
         newGame = true;
     }
 
@@ -31,6 +32,9 @@ public class Craps {
         }
         dice1.draw();
         dice2.draw();
+        if (rollnum>1){
+            total=getTotal();
+        }
 
     }
 
@@ -39,8 +43,8 @@ public class Craps {
     }
 
     public int getTotal() {
-        total= dice1.getValue() + dice2.getValue();
-        return total;
+         return dice1.getValue() + dice2.getValue();
+        
     }
 
     public int getPoint() {
@@ -49,12 +53,28 @@ public class Craps {
     
   public boolean hasWon(){
       if(rollnum==1) {
-          if(total==7|| total==11) {
+          if(point==7|| point==11) {
               return true;
           }
+          else return false;
+          
        
-      }
+      }else//if not first round
+          if (total==point)
+              return true;
+          else return false;
      
   
-}
-}
+   }
+  public boolean hasLost(){
+      if (rollnum==1){
+          if (point==2||point==3||point==12)
+              return true;
+          else return false;}
+      else//if not first rounf
+          if (total==7)
+              return true;
+          else return false;
+      
+      }
+  }

@@ -1,92 +1,59 @@
 package Lesson8.Assignments.studentbrowser;
-
-
 public class Student {
 
-    //instance variables
-    //these are the properties of a student
+    
     private String name;
-
-    //turn this into an array///////////////
-    private int marks[];
-
-    //constructor methods - 3 ways you can make a student
-    public Student() {
-        this("", new int[]{0, 0, 0});
-    }
-
-    //Additonal Constructor
+    private int test[]=new int[3];
+    
     public Student(String nm, int t[]) {
         name = nm;
-        marks = t;
+        test = t;   
     }
 
-    //Another constructor
-    public Student(Student s) {
-        this(s.name, s.marks);
-    }
-
-    /*
-    other methods
-    these give our object more abilities
-     */
     public void setName(String nm) {
         name = nm;
-    }
-
-    public void setMark(int whichmark, int number) {
-        //user sends in 1,2,3 to modify a mark
-        marks[whichmark - 1] = number;
-    }
-
-    public int getAverage() {
-        int average = (marks[0] + marks[1] + marks[2]) / 3;
-        return average;
-    }
-
-    public int getMark(int whichmark) {
-        return marks[whichmark - 1];
-    }
-
-    public int getHighscore() {
-        int high = marks[0];
-        if (marks[1] > high) {
-            high = marks[1];
-        }
-        if (marks[2] > high) {
-            high = marks[2];
-        }
-        return high;
-    }
-
-    public String toString() {
-        String result = "Name: " + name;
-        for (int i = 0; i < 3; i++) {
-            result += "\n Mark" + (i + 1) + ":\t" + marks[i];
-        }
-        result += "\n-----------------";
-        return result;
     }
 
     public String getName() {
         return name;
     }
-
-    //validate data
-    public String validateData() {
-        String message = null;
-        //check if name is entered
-        if (name.equals("")) {
-            message += "\nName is required\nPlease re-enter all data";
-        }
-
-        for (int i = 0; i < 3; i++) {
-            if (marks[i] < 0 || marks[i] > 100) {
-                message += "\nName is required\nPlease re-enter all data";
-            }
-            break; //leaves loop right away
-        }
-
-        return message;
+    
+    public void setScore(int i, int score){
+    test[i-1]=score;
     }
+    
+    public int getScore(int i){
+       return test[i-1];
+    }
+    
+    public int getAverage(){
+        int average;//local variable
+        average=(test[0] + test [1] + test[2] )/3;
+        return average;
+    }
+    
+    public String toString(){
+        //print the details of student when it is printed
+        String str;
+        str="Name:\t\t" + name + "\n";
+        str+="" + getAverage();
+        return str;
+    }
+    
+    public String validateData() {
+        String errormessage = null;
+        if (name.length() < 2){
+            errormessage="Name is required \n";
+        }
+        if (test[0]<0|| test[0] >100 || test[1] <0 || test[1] > 100 || test[2] <0 || test[2] > 100) {
+            errormessage += ("At least one mark is not within acceptable range.");   
+        }
+        if (errormessage != null){
+            errormessage += ("\n Please re-enter all the data.");
+        }
+        return errormessage;
+    }
+   
 }
+
+    
