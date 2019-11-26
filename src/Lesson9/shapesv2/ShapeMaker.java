@@ -24,13 +24,7 @@ Shape s;
         p.setColor(Color.blue);
     }
     
-    private void btncircleActionPerformed(java.awt.event.ActionEvent evt){
-        erase();
-        s= new Circle(0,0,50);
-        s.draw(p);
-        txtinfo.setText(s.toString());
-    }
-
+   
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -42,7 +36,7 @@ Shape s;
         rectbtn = new javax.swing.JButton();
         trianglebtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtinfo = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         movebtn = new javax.swing.JButton();
         resizebtn = new javax.swing.JButton();
@@ -56,12 +50,32 @@ Shape s;
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         circlebtn.setText("Circle");
+        circlebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                circlebtnActionPerformed(evt);
+            }
+        });
 
         wheelbtn.setText("Wheel");
+        wheelbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wheelbtnActionPerformed(evt);
+            }
+        });
 
         rectbtn.setText("Rectangle");
+        rectbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rectbtnActionPerformed(evt);
+            }
+        });
 
         trianglebtn.setText("Triangle");
+        trianglebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                trianglebtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -90,10 +104,10 @@ Shape s;
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane1.setViewportView(jTextArea1);
+        txtinfo.setColumns(20);
+        txtinfo.setRows(5);
+        txtinfo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane1.setViewportView(txtinfo);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -105,6 +119,11 @@ Shape s;
         });
 
         resizebtn.setText("Resize");
+        resizebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resizebtnActionPerformed(evt);
+            }
+        });
 
         quitbtn.setText("Quit");
         quitbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +142,7 @@ Shape s;
                     .addComponent(resizebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(movebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(quitbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,13 +213,49 @@ Shape s;
         erase();
         s.move(x,y);
         s.draw(p);
-        txtinfo.setText(s.toString());
+       txtinfo.setText(s.toString());
     }//GEN-LAST:event_movebtnActionPerformed
 
     private void quitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitbtnActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
        
     }//GEN-LAST:event_quitbtnActionPerformed
+
+    private void circlebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_circlebtnActionPerformed
+         erase();
+        s= new Circle(0,0,50);
+        s.draw(p);
+        txtinfo.setText(s.toString());
+    }//GEN-LAST:event_circlebtnActionPerformed
+
+    private void rectbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rectbtnActionPerformed
+        erase();
+        s= new Rect(-100,50,200,100);
+        s.draw(p);
+        txtinfo.setText(s.toString());  // TODO add your handling code here:
+    }//GEN-LAST:event_rectbtnActionPerformed
+
+    private void resizebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resizebtnActionPerformed
+        double factor=Double.parseDouble(JOptionPane.showInputDialog(this, "Enter new size factor"));
+        erase();
+    s.stretchBy(factor);
+    s.draw(p);// TODO add your handling code here:
+    txtinfo.setText(s.toString());
+    }//GEN-LAST:event_resizebtnActionPerformed
+
+    private void wheelbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wheelbtnActionPerformed
+        erase();
+        s= new Wheel(0,0,50,6);
+        s.draw(p);
+        txtinfo.setText(s.toString());  // // TODO add your handling code here:
+    }//GEN-LAST:event_wheelbtnActionPerformed
+
+    private void trianglebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trianglebtnActionPerformed
+        erase();
+        s= new Triangle(-50,0,0,+50, 50,0);
+        s.draw(p);
+        txtinfo.setText(s.toString()); 
+    }//GEN-LAST:event_trianglebtnActionPerformed
 
     public static void main(String args[]) {
        
@@ -219,12 +274,12 @@ Shape s;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton movebtn;
     private javax.swing.JButton quitbtn;
     private javax.swing.JButton rectbtn;
     private javax.swing.JButton resizebtn;
     private javax.swing.JButton trianglebtn;
+    private javax.swing.JTextArea txtinfo;
     private javax.swing.JButton wheelbtn;
     // End of variables declaration//GEN-END:variables
 }

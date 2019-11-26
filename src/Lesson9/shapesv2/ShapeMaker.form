@@ -114,21 +114,33 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Circle"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="circlebtnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="wheelbtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Wheel"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wheelbtnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="rectbtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Rectangle"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rectbtnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="trianglebtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Triangle"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="trianglebtnActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -139,7 +151,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea1">
+        <Component class="javax.swing.JTextArea" name="txtinfo">
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
@@ -171,7 +183,7 @@
                       <Component id="movebtn" alignment="0" max="32767" attributes="0"/>
                       <Component id="quitbtn" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -202,6 +214,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Resize"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resizebtnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="quitbtn">
           <Properties>

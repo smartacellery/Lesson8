@@ -19,13 +19,20 @@ public class Rect extends Shape
         width=10;
         height=10;
     }
-
+    @Override
+public void move(double xloc,double yloc){
+      xPos = xloc;
+        yPos = yloc;
+    }
     @Override
     public double area()
     {
         return width * height;
     }
-
+    @Override
+    public double perimeter(){
+        return 2*(width+height);
+    }
     @Override
     public void draw(Pen p)
     {
@@ -48,7 +55,8 @@ public class Rect extends Shape
     @Override
     public String toString()
     {
-        String str = "Rectangle\n=========";
+        String str = "Rectangle\n=========\n";
+        str +="X-Y Position =" + xPos+","+ yPos;
         str += "\nWidth: " + width;
         str += "\nHeight: " + height;
         str += super.toString();

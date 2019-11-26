@@ -20,7 +20,7 @@ public abstract class Shape {
 
     //like interface, children MUST implement it
     abstract double area();
-
+    abstract double perimeter(); 
     abstract void draw(Pen p);
 
     abstract void stretchBy(double factor);
@@ -34,10 +34,7 @@ public abstract class Shape {
         return yPos;
     }
 
-    public void move(double xloc, double yloc) {
-        xPos = xloc;
-        yPos = yloc;
-    }
+    abstract void move(double xloc, double yloc) ;
 
   final   public void erase(Pen p) {
         p.setColor(Color.white);
@@ -47,9 +44,12 @@ public abstract class Shape {
 
     public String toString() {
         String str = "";
-        str += "\nxPos: " + xPos;
-        str += "\nyPos: " + yPos;
-        str += String.format("\nArea: %.2f", area());
+      //  str += "\nxPos: " + xPos;
+      //  str += "\nyPos: " + yPos;
+       // str += String.format("\nArea: %.2f", area());
+     //  String str="X-Y Position =" + xPos+","+ yPos;
+       str+= "\nArea="+ area();
+       str+= "\nPerimeter=" + perimeter();
         return str;
     }
 }

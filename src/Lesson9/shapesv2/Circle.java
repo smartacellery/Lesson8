@@ -18,16 +18,24 @@ public class Circle extends Shape {
     }
 
     //over riding the parent version
-    public double getXPos() {
-        System.out.println("Here is circles x pos> ");
-        return super.getXPos(); //calling shape xpos
-    }
+   // public double getXPos() {
+   //     System.out.println("Here is circles x pos> ");
+    //    return super.getXPos(); //calling shape xpos
+   // }
 
     @Override
     public double area() {
         return Math.PI * radius * radius;
     }
-
+    @Override
+     public double perimeter(){
+        return Math.PI*2*radius;
+    }
+     @Override
+     public void move(double xloc,double yloc){
+      xPos = xloc;
+        yPos = yloc;
+    }
     @Override
     public void draw(Pen p) {
         double side = (2 * Math.PI * radius) / 120;
@@ -50,7 +58,8 @@ public class Circle extends Shape {
 
     @Override
     public String toString() {
-        String str = "Circle\n======";
+        String str = "Circle\n======\n";
+        str +="X-Y Position =" + xPos+","+ yPos;
         str += "\nRadius: " + radius;
         str += super.toString();
         return str;

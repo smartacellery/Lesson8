@@ -48,9 +48,10 @@ public class Wheel extends Circle
     
     public String toString()
     {
-        String str = "Circle\n======";
-        str += "\nxPos: " + xPos;
-        str += "\nyPos: " + yPos;
+        String str = "Circle\n======\n";
+        str +="X-Y Position =" + xPos+","+ yPos;
+        //str += "\nxPos: " + xPos;
+       // str += "\nyPos: " + yPos;
         str += "\nRadius: " + radius;
         str += "\nSpokes: " + spokes;
         str += String.format("\nArea: %.2f", area());
